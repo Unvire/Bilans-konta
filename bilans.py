@@ -23,7 +23,7 @@ class App(tk.Tk):
 
     def countMoney(self):
         filename = fd.askopenfilenames(initialdir=os.getcwd(), filetypes=(('Text files', '.txt'),)) # open file window (filetypes must be a tuple of tuples)
-        with open(filename) as file:
+        with open(filename[0]) as file:
             try:
                 outText = [float(line[:-4].replace(',','.').replace(' ','')) for line in file.readlines() if 'PLN' in line]
                 result = sum(outText)
